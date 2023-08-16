@@ -19,7 +19,6 @@ public class LogoutService implements LogoutHandler {
       Authentication authentication
   ) {
     final String authHeader = request.getHeader("Authorization");
-    final String jwt;
     if (authHeader == null ||!authHeader.startsWith("Bearer ")) {
       return;
     }
