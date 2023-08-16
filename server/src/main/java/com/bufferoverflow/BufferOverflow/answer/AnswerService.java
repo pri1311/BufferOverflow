@@ -24,6 +24,7 @@ public class AnswerService {
                 .publicationDateTime(new Date())
                 .upvotes(0)
                 .question(question.orElse(new Question()))
+                .isAccepted(false)
                 .build();
         answerRepository.save(answer);
         return answer;
@@ -31,6 +32,10 @@ public class AnswerService {
 
     public List<Answer> getAllAnswers() {
         return answerRepository.findAll();
+    }
+
+    public List<Answer> getAllAnswers(Integer id) {
+        return answerRepository.findAllByQuestionId(id);
     }
 
     public Answer getAnswerById(Integer id) {

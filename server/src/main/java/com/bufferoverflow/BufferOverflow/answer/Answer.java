@@ -22,6 +22,7 @@ public class Answer {
     private Integer id;
     private String body;
     private Integer upvotes;
+    private Boolean isAccepted;
     @CreationTimestamp
     private Date publicationDateTime;
     @ManyToOne(fetch = FetchType.EAGER)

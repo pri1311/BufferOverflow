@@ -1,32 +1,35 @@
 package com.bufferoverflow.BufferOverflow.question;
 
+import com.bufferoverflow.BufferOverflow.tag.Tag;
+import com.bufferoverflow.BufferOverflow.tag.TagRepository;
 import com.bufferoverflow.BufferOverflow.user.User;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
 public class QuestionService {
     private final QuestionRepository questionRepository;
+    private final TagRepository tagRepository;
 
-    public Question postQuestion (@RequestBody Map<String, String> payload) {
+    public Question postQuestion (@RequestBody QuestionRequest payload) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Set<Tag> tags = new HashSet<Tag>();
+        payload.getTags().forEach(tag -> {
+            tags.add(tagRepository.findByName(tag));
+        });
         Question question = Question
                 .builder()
-                .title(payload.get("title").toString())
-                .body(payload.get("body").toString())
+                .title(payload.getTitle())
+                .body(payload.getBody())
                 .publicationDateTime(new Date())
                 .upvotes(0)
                 .user(user)
+                .tags(tags)
                 .build();
         questionRepository.save(question);
         return question;
@@ -52,5 +55,9 @@ public class QuestionService {
         question.setUpvotes(question.getUpvotes() - 1);
         questionRepository.save(question);
         return question;
+    }
+
+    public List<Question> getAllQuestionsByTag(Integer id) {
+        return questionRepository.findAllByTags_id(id);
     }
 }
