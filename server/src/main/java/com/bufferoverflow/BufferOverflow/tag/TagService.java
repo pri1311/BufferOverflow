@@ -18,6 +18,7 @@ public class TagService {
         Tag tag = Tag
                 .builder()
                 .name(payload.get("name"))
+                .description(payload.get("description"))
                 .build();
         tagRepository.save(tag);
         return tag;
@@ -25,9 +26,7 @@ public class TagService {
 
     public List<Question> getAllQuestionsByTag(String name) {
         Tag tag = tagRepository.findByName(name);
-        System.out.println(tag.getId());
         System.out.println(questionService.getAllQuestionsByTag(tag.getId()).getClass());
-        System.out.println("here");
         return new ArrayList<Question>(questionService.getAllQuestionsByTag(tag.getId()));
     }
 

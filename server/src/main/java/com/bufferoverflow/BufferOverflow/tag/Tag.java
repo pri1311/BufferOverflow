@@ -20,6 +20,8 @@ public class Tag {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
+    @Column(length = 2048)
+    private String description;
     @ManyToMany(mappedBy = "tags", fetch = FetchType.EAGER)
     private Set<Question> questions;
 }

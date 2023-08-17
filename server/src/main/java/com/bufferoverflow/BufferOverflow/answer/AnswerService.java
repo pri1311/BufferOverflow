@@ -55,4 +55,22 @@ public class AnswerService {
         answerRepository.save(answer);
         return answer;
     }
+
+    public Answer acceptAnswer(Integer id) {
+        Answer answer = answerRepository.findById(id).get();
+        answer.setIsAccepted(true);
+        answerRepository.save(answer);
+        return answer;
+    }
+
+    public Answer undoAcceptAnswer(Integer id) {
+        Answer answer = answerRepository.findById(id).get();
+        answer.setIsAccepted(false);
+        answerRepository.save(answer);
+        return answer;
+    }
+
+    public void deleteAnswer(Integer id) {
+        answerRepository.deleteById(id);
+    }
 }

@@ -23,6 +23,7 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String title;
+    @Column(length = 2048)
     private String body;
     private Integer upvotes;
     @CreationTimestamp

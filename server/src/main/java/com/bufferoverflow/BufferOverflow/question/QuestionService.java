@@ -1,5 +1,8 @@
 package com.bufferoverflow.BufferOverflow.question;
 
+import com.bufferoverflow.BufferOverflow.answer.Answer;
+import com.bufferoverflow.BufferOverflow.answer.AnswerRepository;
+import com.bufferoverflow.BufferOverflow.answer.AnswerService;
 import com.bufferoverflow.BufferOverflow.tag.Tag;
 import com.bufferoverflow.BufferOverflow.tag.TagRepository;
 import com.bufferoverflow.BufferOverflow.user.User;
@@ -15,13 +18,13 @@ import java.util.*;
 public class QuestionService {
     private final QuestionRepository questionRepository;
     private final TagRepository tagRepository;
+    private final AnswerService answerService;
+    private final AnswerRepository answerRepository;
 
     public Question postQuestion (@RequestBody QuestionRequest payload) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Set<Tag> tags = new HashSet<Tag>();
-        payload.getTags().forEach(tag -> {
-            tags.add(tagRepository.findByName(tag));
-        });
+        Set<Tag> tags = new HashSet<>();
+        payload.getTags().forEach(tag -> tags.add(tagRepository.findByName(tag)));
         Question question = Question
                 .builder()
                 .title(payload.getTitle())
@@ -59,5 +62,13 @@ public class QuestionService {
 
     public List<Question> getAllQuestionsByTag(Integer id) {
         return questionRepository.findAllByTags_id(id);
+    }
+
+    public void deleteQuestion(Integer id) {
+        List<Answer> answers = answerService.getAllAnswers(id);
+        answers.forEach(
+                answerRepository::delete
+        );
+        questionRepository.deleteById(id);
     }
 }

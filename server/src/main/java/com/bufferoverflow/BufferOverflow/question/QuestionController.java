@@ -15,7 +15,7 @@ import java.util.List;
 public class QuestionController {
     private final QuestionService questionService;
     private final AnswerService answerService;
-    @PostMapping("/postQuestion")
+    @PostMapping("/add")
     public ResponseEntity<Question> postQuestion(
             @RequestBody QuestionRequest payload
     ) {
@@ -32,18 +32,34 @@ public class QuestionController {
         return new ResponseEntity<>(questionService.getQuestionById(id), HttpStatus.OK);
     }
 
-    @PostMapping("/upvote/{id}")
+    @PostMapping("/{id}/upvote")
     public ResponseEntity<Question> upVoteQuestion(@PathVariable(value = "id") Integer id) {
         return new ResponseEntity<>(questionService.upvoteQuestion(id), HttpStatus.OK);
     }
 
-    @PostMapping("/downvote/{id}")
+    @PostMapping("/{id}/downvote")
     public ResponseEntity<Question> downVoteQuestion(@PathVariable(value = "id") Integer id) {
         return new ResponseEntity<>(questionService.downVoteQuestion(id), HttpStatus.OK);
+    }
+
+    @PostMapping("/{id}/upvote/undo")
+    public ResponseEntity<Question> undoUpVoteQuestion(@PathVariable(value = "id") Integer id) {
+        return new ResponseEntity<>(questionService.downVoteQuestion(id), HttpStatus.OK);
+    }
+
+    @PostMapping("/{id}/downvote/undo")
+    public ResponseEntity<Question> undoDownVoteQuestion(@PathVariable(value = "id") Integer id) {
+        return new ResponseEntity<>(questionService.upvoteQuestion(id), HttpStatus.OK);
     }
 
     @GetMapping("/{id}/answers")
     public ResponseEntity<List<Answer>> getAllAnswers(@PathVariable(value = "id") Integer id) {
         return new ResponseEntity<>(answerService.getAllAnswers(id), HttpStatus.OK);
+    }
+
+    @PostMapping("/{id}/delete")
+    public ResponseEntity<String> deleteQuestion(@PathVariable(value = "id") Integer id) {
+        questionService.deleteQuestion(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
