@@ -1,13 +1,49 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Roboto:wght@300&display=swap');
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-family: 'Noto Sans', 'Open Sans', sans-serif;
+  background-color: var(--white);
+}
+:root {
+  --dark-bg: #262626;
+  --grey: gray;
+  --gray-1: #bcb4b4;
+  --deep-dark: #1e1e1e;
+  --gray-2: #a19f9f;
+  --white: white;
+  --black: black;
+}
+html {
+  font-size: 10px;
+  font-family: "Roboto Mono";
+  background-color: var(--white);
+  color: var(--black);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

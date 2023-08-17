@@ -1,0 +1,115 @@
+:root {
+    --dark-bg: #262626;
+    --gray-1: #bcb4b4;
+    --deep-dark: #1e1e1e;
+    --gray-2: #363636;
+    --white: white;
+    --black: black;
+}
+
+.wrapper {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 100%;
+    height: 10vh;
+}
+
+.icon {
+    padding: 0 1rem;
+}
+
+.navIcon p {
+    color: var(--black);
+    font-size: 1.5em;
+    padding-top: 2em;
+    padding-right: 2em;
+}
+
+.navIcon {
+    width: 100%;
+    display: none;
+}
+
+.navlist {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 20em;
+    box-shadow: 0 0 15px 0 rgb(0 0 0 / 10%);
+    align-items: center;
+}
+
+.lists {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--black);
+    font-size: 1.75em;
+    text-align: center;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.isActive {
+    text-decoration: underline;
+}
+
+.button {
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 1.75em;
+    padding: 0.5em 1.25em;
+    border-radius: 7.5px;
+}
+
+@media screen and (max-width: 960px) {
+    .navlist {
+        padding: 2em 20em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navlist {
+        padding: 2em 12em;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .navlist {
+        background-color: var(--white);
+        position: absolute;
+        height: 90vh;
+        flex-direction: column;
+        z-index: 1000;
+        justify-content: space-around;
+        align-content: center;
+        padding: auto;
+        width: 100%;
+        color: var(--black);
+        box-shadow: none;
+    }
+    .lists {
+        flex-direction: column;
+        justify-content: space-around;
+        align-content: center;
+        padding: auto;
+        width: 100%;
+        height: 60%;
+        color: var(--black);
+    }
+    .navIcon {
+        display: flex;
+        align-content: flex-end;
+        justify-content: end;
+    }
+    .hideNavBar {
+        display: none;
+    }
+}

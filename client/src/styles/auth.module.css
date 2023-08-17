@@ -1,0 +1,72 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50vh;
+    height: 50vh;
+    padding: 7vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.containerr {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50vh;
+    height: 70vh;
+    padding: 7vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.title {
+    color: var(--black);
+    font-size: 2vh;
+    text-align: center;
+}
+
+.input {
+    padding: 0.8vh;
+    width: 100%;
+    color: var(--black);
+    font-size: 1.5vh;
+    border: 0.5px solid var(--grey);
+}
+
+.label {
+    margin-top: 1vh;
+    width: 100%;
+    color: var(--black);
+    font-size: 1.75vh;
+    text-align: start;
+}
+
+.button {
+    margin-top: 1vh;
+    width: 100%;
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 1.75vh;
+    padding: 0.5vh 1.25vh;
+    border-radius: 7.5px;
+}
+
+.text {
+    color: var(--black);
+    font-size: 1.75vh;
+    text-align: center;
+}
+
+.text > a {
+    text-decoration: underline;
+}
