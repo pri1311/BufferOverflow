@@ -6,6 +6,7 @@ import com.bufferoverflow.BufferOverflow.answer.AnswerService;
 import com.bufferoverflow.BufferOverflow.tag.Tag;
 import com.bufferoverflow.BufferOverflow.tag.TagRepository;
 import com.bufferoverflow.BufferOverflow.user.User;
+import com.bufferoverflow.BufferOverflow.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ public class QuestionService {
     private final TagRepository tagRepository;
     private final AnswerService answerService;
     private final AnswerRepository answerRepository;
+    private final UserService userService;
 
     public Question postQuestion (@RequestBody QuestionRequest payload) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

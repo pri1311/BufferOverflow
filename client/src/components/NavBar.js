@@ -40,7 +40,7 @@ function NavBar() {
                     className={(isActive) => getClassname(isActive)}
                     onClick={closeNavBarMobile}
                 >
-                    <p id="navIconTexFontAwesomeIcont">
+                    <p className={styles.brand} id="navIconTexFontAwesomeIcont">
                         <FontAwesomeIcon icon={faStackOverflow} className={styles.icon} />
                         BufferOverflow
                     </p>
