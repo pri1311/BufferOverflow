@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styles from "../styles/NavBar.module.css";
+import styles from "../styles/navbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStackOverflow } from "@fortawesome/free-brands-svg-icons";
 import { useLocation } from "react-router-dom";

@@ -1,0 +1,25 @@
+.tagDescription {
+    font-size: 1.25em;
+}
+
+.tagTitle {
+    font-size: 2em;
+    text-overflow: ellipsis;
+}
+
+.tagWrapper {
+    text-overflow: ellipsis;
+    max-width: 35vh;
+    max-height: 30vh;
+    margin: 2em;
+    text-align: start;
+    padding: 1.5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 8em;
+}

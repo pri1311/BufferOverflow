@@ -1,0 +1,45 @@
+.bodyPreview {
+    width: 100%;
+    text-align: start;
+    padding: 1em;
+    border: 0.02px solid gray;
+    margin-top: 1.5em;
+}
+
+.wrapper label{
+    margin-top: 1em;
+    font-size: 2em;
+}
+
+.wrapper p{
+    font-size: 1.25em;
+}
+
+.wrapper input{
+    font-size: 1.25em;
+    padding: 0.5em;
+    border: 0.5px solid gray;
+    min-width: 100%;
+}
+
+.bodyInput {
+    margin: 0;
+    padding: 0;
+}
+
+.button {
+    margin: 1.5em 0;
+    min-width: 20%;
+    max-width: 100%;
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 1.75vh;
+    padding: 0.5vh 1.25vh;
+    border-radius: 3px;
+    border: none;
+}
+
+.button:focus {
+    outline: none;
+    border: none;
+}
