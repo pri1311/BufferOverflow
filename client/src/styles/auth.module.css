@@ -40,7 +40,7 @@
     width: 100%;
     color: var(--black);
     font-size: 1.5vh;
-    border: 0.5px solid var(--grey);
+    border: 0.5px solid var(--gray);
 }
 
 .label {

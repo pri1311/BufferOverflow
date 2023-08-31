@@ -74,6 +74,18 @@
     border-radius: 7.5px;
 }
 
+.userIcon {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: var(--gray-1);
+    border-radius: 50%;
+    align-items: center !important;
+    padding: 0;
+    vertical-align: middle;
+    padding: 1em 0.5em;
+}
+
 @media screen and (max-width: 960px) {
     .navlist {
         padding: 2em 20em;

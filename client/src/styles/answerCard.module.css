@@ -1,0 +1,52 @@
+.answerCardWrapper {
+    width: 100%;
+    text-align: start;
+    padding: 1em;
+    border: 0.02px solid gray;
+    margin: 1em 0;
+    font-size: 1.25em;
+}
+
+.user {
+    margin: 0;
+    margin: 0 0.5em;
+}
+
+.user span {
+    font-weight: 700;
+    font-size: 1.25em;
+}
+
+.userIcon {
+    display: flex;
+    height: 3em;
+    width: 3em;
+    text-align: center;
+    justify-content: center;
+    background-color: var(--gray-1);
+    border-radius: 50%;
+    align-items: center !important;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.dateTime {
+    margin: 0;
+    color: gray;
+}
+
+.answerBody {
+    padding: 2em;
+}
+
+.icon {
+    padding: 0.5em;
+    border: 0.01px solid gray;
+    font-weight: bolder;
+}
+
+.upvotes {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}

@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Container } from "react-bootstrap";
 import styles from "../styles/askQuestion.module.css";
 
-function QuestionBodyRTE({ setBody, body }) {
+function QuestionBodyRTE({ setBody, body, displayPreview }) {
     var toolbarOptions = [
         ["bold", "italic", "underline", "strike"], // toggled buttons
         ["blockquote", "code-block"],
@@ -42,10 +42,12 @@ function QuestionBodyRTE({ setBody, body }) {
                 className={styles.bodyInput}
                 value={body}
             />
-            <div
-                className={styles.bodyPreview}
-                dangerouslySetInnerHTML={{ __html: body }}
-            ></div>
+            {displayPreview && (
+                <div
+                    className={styles.bodyPreview}
+                    dangerouslySetInnerHTML={{ __html: body }}
+                ></div>
+            )}
         </Container>
     );
 }

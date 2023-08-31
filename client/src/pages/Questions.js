@@ -4,16 +4,19 @@ import QuestionCard from "../components/QuestionCard";
 import { Col, Container } from "react-bootstrap";
 
 function Questions() {
-    var [questions, setQuestions] = useState([]);
+    const [questions, setQuestions] = useState([]);
+    
     async function getQuestions() {
         const questionsResponse = await api.get("/questions/");
         const questions = questionsResponse.data;
         setQuestions(questions);
         console.log(questions);
     }
+
     useEffect(() => {
         getQuestions();
     }, []);
+
     return (
         <div>
             <Container className="p-4 md-p-0">
@@ -23,6 +26,8 @@ function Questions() {
                     <hr style={{ width: "100%" }}></hr>
                     {questions.map((question) => (
                         <QuestionCard
+                            key={question.id}
+                            id={question.id}
                             title={question.title}
                             body={question.body}
                             upvotes={question.upvotes}

@@ -11,6 +11,7 @@ function AskQuestionInput() {
     const [body, setBody] = useState("");
     const [selected, setSelected] = useState([]);
     const titleRef = useRef();
+    
     async function getTags() {
         const tagsResponse = await api.get("/tags/");
         const tags = tagsResponse.data;
@@ -66,7 +67,7 @@ function AskQuestionInput() {
                         Include all the information someone would need to answer
                         your Question.
                     </p>
-                    <QuestionBodyRTE setBody={setBody} body={body} />
+                    <QuestionBodyRTE setBody={setBody} body={body} displayPreview={true}/>
                     <label for="tag">Tags</label>
                     <p>
                         Add upto 3 tags to describe what your question is about.

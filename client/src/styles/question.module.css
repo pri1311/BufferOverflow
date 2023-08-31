@@ -1,0 +1,11 @@
+.button {
+    margin: 1em 0;
+    min-width: 20%;
+    max-width: 100%;
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 1.75vh;
+    padding: 0.5vh 1.25vh;
+    border-radius: 3px;
+    border: none;
+}

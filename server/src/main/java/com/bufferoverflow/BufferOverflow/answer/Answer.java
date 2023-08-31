@@ -1,6 +1,7 @@
 package com.bufferoverflow.BufferOverflow.answer;
 
 import com.bufferoverflow.BufferOverflow.question.Question;
+import com.bufferoverflow.BufferOverflow.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,6 +25,8 @@ public class Answer {
     private String body;
     private Integer upvotes;
     private Boolean isAccepted;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private User user;
     @CreationTimestamp
     private Date publicationDateTime;
     @ManyToOne(fetch = FetchType.EAGER)

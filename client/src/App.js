@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import Tags from "./pages/Tags";
 import AskQuestionInput from "./components/AskQuestionInput";
 import Questions from "./pages/Questions";
+import Question from "./pages/Question";
 
 function App() {
     // Here itself, since we are using JWT auth, anytime someone opens the App and the user store is empty but JWT token is present in local storage, repopulate the data. But HOW? OK added an endpoint.
@@ -55,6 +56,7 @@ function App() {
                     <Route path="/tags" element={<Tags />} />
                     <Route path="/ask" element={<AskQuestionInput />} />
                     <Route path="/questions" element={<Questions/>}/>
+                    <Route path="/questions/:id" element={<Question/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

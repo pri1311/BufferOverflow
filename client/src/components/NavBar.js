@@ -4,9 +4,15 @@ import styles from "../styles/navbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStackOverflow } from "@fortawesome/free-brands-svg-icons";
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Col, Row } from "react-bootstrap";
 
 function NavBar() {
     const location = useLocation();
+    const { uid, firstName, lastName } = useSelector(
+        (state) => state.user.value
+    );
+
     function closeNavBar() {
         var navIconText = document.getElementById("navIconText");
         var navList = document.getElementById("navList");
@@ -77,19 +83,31 @@ function NavBar() {
                     >
                         Users
                     </NavLink>
-                    <NavLink
-                        to={
-                            location.pathname == "/register"
-                                ? "/login"
-                                : "/register"
-                        }
-                        className={(isActive) =>
-                            getClassname(isActive) + " " + styles.button
-                        }
-                        onClick={closeNavBarMobile}
-                    >
-                        {location.pathname == "/login" ? "Sign Up" : "Login"}
-                    </NavLink>
+                    {uid != "" && (
+                        <Row className="d-flex flex-row justify-content-center align-items-center">
+                            <Col className={styles.userIcon}>
+                                {firstName[0]}
+                            </Col>{" "}
+                            <Col>{firstName} {lastName}</Col>
+                        </Row>
+                    )}
+                    {uid === "" && (
+                        <NavLink
+                            to={
+                                location.pathname == "/register"
+                                    ? "/login"
+                                    : "/register"
+                            }
+                            className={(isActive) =>
+                                getClassname(isActive) + " " + styles.button
+                            }
+                            onClick={closeNavBarMobile}
+                        >
+                            {location.pathname == "/login"
+                                ? "Sign Up"
+                                : "Login"}
+                        </NavLink>
+                    )}
                 </div>
             </div>
         </div>
