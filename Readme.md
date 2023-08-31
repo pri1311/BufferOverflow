@@ -1,7 +1,7 @@
 #### Screenshots (in progress)
 
 ![Questions](https://github.com/pri1311/BufferOverflow/blob/master/screenshots/questions.png)
-![Questions and Answer](https://github.com/pri1311/BufferOverflow/blob/master/screenshots/question-answer.png)
+![Questions and Answer](https://github.com/pri1311/BufferOverflow/blob/master/screenshots/question-answers.png)
 ![Ask a Question](https://github.com/pri1311/BufferOverflow/blob/master/screenshots/ask-question.png)
 ![Login](https://github.com/pri1311/BufferOverflow/blob/master/screenshots/login.png)
 ![Register](https://github.com/pri1311/BufferOverflow/blob/master/screenshots/register.png)
