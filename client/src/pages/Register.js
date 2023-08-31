@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styles from "../styles/auth.module.css";
 import { useNavigate } from "react-router-dom";
-import api from '../api/axiosConfig'
+import api from "../api/axiosConfig";
 import { setUserDetails } from "../features/user";
 import { useDispatch } from "react-redux";
 
@@ -11,25 +11,36 @@ function Register() {
     const firstNameRef = useRef();
     const lastNameRef = useRef();
     const navigate = useNavigate();
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     async function onClickRegister(e) {
         e.preventDefault();
         const email = emailRef.current.value;
-        const password = passwordRef.current.value
-        const firstName = firstNameRef.current.value
-        const lastName = lastNameRef.current.value
-        
+        const password = passwordRef.current.value;
+        const firstName = firstNameRef.current.value;
+        const lastName = lastNameRef.current.value;
+
         try {
-            const response = await api.post('/auth/register', {email: email, password: password, firstName: firstName, lastName: lastName});
-            const data = response.data
-            const token = data.token
+            const response = await api.post("/auth/register", {
+                email: email,
+                password: password,
+                firstName: firstName,
+                lastName: lastName,
+            });
+            const data = response.data;
+            const token = data.token;
             const id = data.uid;
-            dispatch(setUserDetails({email: email, uid: id, firstName: firstName, lastName: lastName}))
-            window.localStorage.setItem('auth_token', token);
-            navigate('/')
-        }
-        catch (e) {
+            dispatch(
+                setUserDetails({
+                    email: email,
+                    uid: id,
+                    firstName: firstName,
+                    lastName: lastName,
+                })
+            );
+            window.localStorage.setItem("auth_token", token);
+            navigate("/");
+        } catch (e) {
             console.error(e);
         }
     }
@@ -92,7 +103,12 @@ function Register() {
                     required={true}
                     name="password"
                 ></input>
-                <button onClick={e => onClickRegister(e)} className={styles.button}>Register</button>
+                <button
+                    onClick={(e) => onClickRegister(e)}
+                    className={styles.button}
+                >
+                    Register
+                </button>
                 <p className={styles.text}>
                     Already have an account?{" "}
                     <a onClick={() => navigate("/login")} href="/login">

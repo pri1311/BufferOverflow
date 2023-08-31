@@ -26,7 +26,6 @@ public class QuestionController {
     public ResponseEntity<List<Question>> getAllQuestions() {
         return new ResponseEntity<>(questionService.getAllQuestions(), HttpStatus.OK);
     }
-
     @GetMapping("/{id}")
     public ResponseEntity<Question> getQuestionById(@PathVariable(value = "id") Integer id) {
         return new ResponseEntity<>(questionService.getQuestionById(id), HttpStatus.OK);

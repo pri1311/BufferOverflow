@@ -1,22 +1,20 @@
 import React, { useState } from "react";
 import { WithContext as ReactTags } from "react-tag-input";
-import '../styles/tagsInput.css'
-import { Row, Col } from 'react-bootstrap'
+import "../styles/tagsInput.css";
+import { Row, Col } from "react-bootstrap";
 
-function QuestionTagInput({ tags }) {
-    console.log(tags);
-    const [selected, setSelected] = useState([]);
-    const [message, setMessage] = useState('')
+function QuestionTagInput({ tags, selected, setSelected }) {
+    const [message, setMessage] = useState("");
     const suggestions = tags.map((tag) => {
         return {
-          id: tag,
-          text: tag,
+            id: tag,
+            text: tag,
         };
-      });
+    });
     const KeyCodes = {
         comma: 188,
         enter: 13,
-      };
+    };
     const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
     const handleDelete = (i) => {
@@ -25,13 +23,11 @@ function QuestionTagInput({ tags }) {
 
     const handleAddition = (tag) => {
         if (selected.length == 3) {
-            setMessage('Maximum of 3 Tags can be added.')
-        }
-        else if (tags.includes(tag.text)) {
-            setMessage('')
+            setMessage("Maximum of 3 Tags can be added.");
+        } else if (tags.includes(tag.text)) {
+            setMessage("");
             setSelected([...selected, tag]);
-        }
-        else setMessage('Tag not available. Please select one for the list.')
+        } else setMessage("Tag not available. Please select one for the list.");
     };
 
     const handleDrag = (tag, currPos, newPos) => {
@@ -50,19 +46,23 @@ function QuestionTagInput({ tags }) {
 
     return (
         <div id="tag" className="tags">
-            <Row style={{width:"100%"}} className="d-flex flex-row p-0" fluid>
-                    <ReactTags
-                        tags={selected}
-                        suggestions={suggestions}
-                        delimiters={delimiters}
-                        handleDelete={handleDelete}
-                        handleAddition={handleAddition}
-                        handleDrag={handleDrag}
-                        handleTagClick={handleTagClick}
-                        inputFieldPosition="bottom"
-                        allowDeleteFromEmptyInput={false}
-                        autocomplete
-                    />
+            <Row
+                style={{ width: "100%" }}
+                className="d-flex flex-row p-0"
+                fluid
+            >
+                <ReactTags
+                    tags={selected}
+                    suggestions={suggestions}
+                    delimiters={delimiters}
+                    handleDelete={handleDelete}
+                    handleAddition={handleAddition}
+                    handleDrag={handleDrag}
+                    handleTagClick={handleTagClick}
+                    inputFieldPosition="bottom"
+                    allowDeleteFromEmptyInput={false}
+                    autocomplete
+                />
             </Row>
             <em>{message}</em>
         </div>

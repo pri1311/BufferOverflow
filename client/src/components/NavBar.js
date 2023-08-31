@@ -6,7 +6,7 @@ import { faStackOverflow } from "@fortawesome/free-brands-svg-icons";
 import { useLocation } from "react-router-dom";
 
 function NavBar() {
-    const location = useLocation()
+    const location = useLocation();
     function closeNavBar() {
         var navIconText = document.getElementById("navIconText");
         var navList = document.getElementById("navList");
@@ -41,39 +41,55 @@ function NavBar() {
                     onClick={closeNavBarMobile}
                 >
                     <p className={styles.brand} id="navIconTexFontAwesomeIcont">
-                        <FontAwesomeIcon icon={faStackOverflow} className={styles.icon} />
+                        <FontAwesomeIcon
+                            icon={faStackOverflow}
+                            className={styles.icon}
+                        />
                         BufferOverflow
                     </p>
                 </NavLink>
                 <div className={styles.lists}>
-                <NavLink
-                    to="/questions"
-                    className={(isActive) => getClassname(isActive)}
-                    onClick={closeNavBarMobile}
-                >
-                    Questions
-                </NavLink>
-                <NavLink
-                    to="/tags"
-                    className={(isActive) => getClassname(isActive)}
-                    onClick={closeNavBarMobile}
-                >
-                    Tags
-                </NavLink>
-                <NavLink
-                    to="/users"
-                    className={(isActive) => getClassname(isActive)}
-                    onClick={closeNavBarMobile}
-                >
-                    Users
-                </NavLink>
-                <NavLink
-                    to={location.pathname == '/register'? '/login': '/register'}
-                    className={(isActive) => getClassname(isActive) + " " + styles.button}
-                    onClick={closeNavBarMobile}
-                >
-                    {location.pathname == '/login'? 'Sign Up': 'Login'}
-                </NavLink>
+                    <NavLink
+                        to="/questions"
+                        className={(isActive) => getClassname(isActive)}
+                        onClick={closeNavBarMobile}
+                    >
+                        Questions
+                    </NavLink>
+                    <NavLink
+                        to="/ask"
+                        className={(isActive) => getClassname(isActive)}
+                        onClick={closeNavBarMobile}
+                    >
+                        Ask a Question
+                    </NavLink>
+                    <NavLink
+                        to="/tags"
+                        className={(isActive) => getClassname(isActive)}
+                        onClick={closeNavBarMobile}
+                    >
+                        Tags
+                    </NavLink>
+                    <NavLink
+                        to="/users"
+                        className={(isActive) => getClassname(isActive)}
+                        onClick={closeNavBarMobile}
+                    >
+                        Users
+                    </NavLink>
+                    <NavLink
+                        to={
+                            location.pathname == "/register"
+                                ? "/login"
+                                : "/register"
+                        }
+                        className={(isActive) =>
+                            getClassname(isActive) + " " + styles.button
+                        }
+                        onClick={closeNavBarMobile}
+                    >
+                        {location.pathname == "/login" ? "Sign Up" : "Login"}
+                    </NavLink>
                 </div>
             </div>
         </div>

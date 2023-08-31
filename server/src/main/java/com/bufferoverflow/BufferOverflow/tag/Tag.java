@@ -22,6 +22,9 @@ public class Tag {
     private String name;
     @Column(length = 2048)
     private String description;
-    @ManyToMany(mappedBy = "tags", fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinTable(name = "Questions_Tags", joinColumns = {
+            @JoinColumn(name = "question_id", referencedColumnName = "id")}, inverseJoinColumns = {
+            @JoinColumn(name = "tag_id", referencedColumnName = "id")})
     private Set<Question> questions;
 }

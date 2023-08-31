@@ -30,7 +30,7 @@ public class Question {
     private Date publicationDateTime;
     @ManyToOne(fetch = FetchType.EAGER)
     private User user;
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinTable(name = "Questions_Tags", joinColumns = {
             @JoinColumn(name = "question_id", referencedColumnName = "id")}, inverseJoinColumns = {
             @JoinColumn(name = "tag_id", referencedColumnName = "id")})
